@@ -1,0 +1,35 @@
+services:
+  nginx:
+    build: ./docker/nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - php
+
+  php:
+    build: ./docker/php
+    volumes:
+      - "./app:/var/www/app"
+    working_dir: /var/www/app
+    depends_on:
+      - mysql
+
+  node:
+    build: ./docker/node
+    volumes:
+      - "./app/frontend:/app"
+    tty: true
+    working_dir: /app
+    ports:
+      - "3000:3000"
+
+  mysql:
+    build: ./docker/mysql
+    environment:
+      - MYSQL_USER=local
+      - MYSQL_PASSWORD=local
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=Asia/Tokyo
+    volumes:
+      - ./docker/mysql/.data:/var/lib/mysql
