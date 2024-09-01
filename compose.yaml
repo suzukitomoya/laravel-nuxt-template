@@ -22,6 +22,8 @@ services:
     working_dir: /app
     ports:
       - "3000:3000"
+    external_links:
+      - "nginx:nginx-container"
 
   mysql:
     build: ./docker/mysql

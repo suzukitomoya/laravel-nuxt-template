@@ -1,4 +1,4 @@
-FROM php:8.3.7-fpm-alpine3.19
+FROM php:8.3.11-fpm-alpine3.20
 
 RUN apk update && \
     apk add --no-cache bash icu-dev mysql-client autoconf gcc g++ make linux-headers libpng libjpeg libpng-dev libjpeg-turbo-dev libzip-dev && \

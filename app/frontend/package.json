@@ -3,8 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
+    "build": "nuxt build --dotenv .env.local",
+    "build:serverless": "NITRO_PRESET=aws-lambda nuxt build --dotenv .env.serverless",
+    "dev": "nuxt dev --dotenv .env.local",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -12,12 +13,13 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
-    "nuxt": "^3.11.2",
-    "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "@nuxt/devtools": "^1.4.1",
+    "nuxt": "^3.13.0",
+    "vue": "^3.4.38",
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^0.3.13",
-    "eslint": "^8.57.0"
+    "@nuxt/eslint": "^0.5.4",
+    "eslint": "^9.9.1"
   }
 }

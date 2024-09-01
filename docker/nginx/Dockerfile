@@ -3,7 +3,7 @@
 # https://github.com/nginxinc/docker-nginx/blob/5b7624a8f98af507d6d1da2ad7b01806305524ae/modules/Dockerfile.alpine
 ##############
 
-ARG NGINX_FROM_IMAGE=nginx:1.26-alpine
+ARG NGINX_FROM_IMAGE=nginx:1.26.2-alpine3.20
 FROM ${NGINX_FROM_IMAGE} as builder
 
 ARG ENABLED_MODULES=brotli

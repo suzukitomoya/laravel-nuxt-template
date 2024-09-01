@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { HelloResponse } from "~/types";
+import type { HelloResponse } from '~/types'
 
-const { data }  = await useFetch<HelloResponse>('http://nginx/api/hello')
+const { data } = await useAppFetch<HelloResponse>('/api/hello')
 </script>
 
 <template>
-<div>
-  <h1>hello nuxt!</h1>
-  <div>{{ data?.message }}</div>
-</div>
+  <div>
+    <h1>Hello, Nuxt!</h1>
+    <div>{{ data?.message }}</div>
+  </div>
 </template>
