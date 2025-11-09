@@ -3,7 +3,7 @@
 # https://github.com/nginxinc/docker-nginx/blob/5b7624a8f98af507d6d1da2ad7b01806305524ae/modules/Dockerfile.alpine
 ##############
 
-ARG NGINX_FROM_IMAGE=nginx:1.26.2-alpine3.20
+ARG NGINX_FROM_IMAGE=nginx:1.28.0-alpine3.21
 FROM ${NGINX_FROM_IMAGE} as builder
 
 ARG ENABLED_MODULES=brotli
@@ -19,12 +19,12 @@ COPY ./ /modules/
 
 RUN apk update \
     && apk add linux-headers openssl-dev pcre2-dev zlib-dev openssl abuild \
-               musl-dev libxslt libxml2-utils make mercurial gcc unzip git \
-               xz g++ coreutils \
+               musl-dev libxslt libxml2-utils make gcc unzip git \
+               xz g++ coreutils curl \
     # allow abuild as a root user \
     && printf "#!/bin/sh\\nSETFATTR=true /usr/bin/abuild -F \"\$@\"\\n" > /usr/local/bin/abuild \
     && chmod +x /usr/local/bin/abuild \
-    && hg clone -r ${NGINX_VERSION}-${PKG_RELEASE} https://hg.nginx.org/pkg-oss/ \
+    && git clone -b ${NGINX_VERSION}-${PKG_RELEASE} https://github.com/nginx/pkg-oss/ \
     && cd pkg-oss \
     && mkdir /tmp/packages \
     && for module in $ENABLED_MODULES; do \

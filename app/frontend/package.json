@@ -13,13 +13,13 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
-    "@nuxt/devtools": "^1.4.1",
-    "nuxt": "^3.13.0",
-    "vue": "^3.4.38",
-    "vue-router": "^4.4.3"
+    "nuxt": "^4.2.1",
+    "vue": "latest",
+    "vue-router": "latest"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^0.5.4",
-    "eslint": "^9.9.1"
+    "@nuxt/eslint": "^1.10.0",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3"
   }
 }
