@@ -52,16 +52,15 @@ Laravel 12 (バックエンド API) と Nuxt 4 (フロントエンド) を組み
 - エラーハンドリング（適切な例外処理, エラーメッセージがユーザーフレンドリーで機密情報を漏らしていないかなど）
 
 ### 出力フォーマット
-全体概要は以下のフォーマットで出力してください。
-
+- 全体概要を以下のフォーマットで出力してください。
 ```
 ## PR概要
 
-## レビュー結果
-以下の重要度に応じて指摘項目を分類してください。個別のレビューコメントは`mcp__github_inline_comment__create_inline_comment`を使用してインラインコメントで作成するので、ここでは簡潔に列挙するのみにしてください。
-- :rotating_light: Critical
-- :warning: Major
-- :eyes: Minor
+// レビュー指摘についてはすべてインラインコメントで記述し、まとめての記述は不要です。
 ```
 
-レビューコメントは必ず`mcp__github_inline_comment__create_inline_comment`を使用してインラインコメントとして作成してください。
+- 個別のレビューコメントは`mcp__github_inline_comment__create_inline_comment`を使用してインラインコメントとして作成してください。
+  - その際、次の重要度についてラベリングしてください。
+    - :rotating_light: Critical
+    - :warning: Major
+    - :eyes: Minor
