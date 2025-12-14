@@ -43,8 +43,8 @@ Laravel 12 (バックエンド API) と Nuxt 4 (フロントエンド) を組み
 **重要**
 - 出力は日本語で記述してください。
 - 最新の情報が必要な場合は、`WebFetch`や`WebSearch`を使用してWebから取得してください。
-- 確認箇所が明確であれば、`mcp__github_inline_comment__create_inline_comment`を使用してインラインコメントとして作成してください。
-- 最初に変更内容の簡潔な概要を記載してください。
+- レビューコメントは1つにまとめず、指摘箇所ごとに`mcp__github_inline_comment__create_inline_comment`を使用してインラインコメントとして作成してください。
+- 変更内容全体の簡潔な概要を記載してください。
 
 ### レビュー観点
 
