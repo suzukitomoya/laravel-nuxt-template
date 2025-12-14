@@ -59,7 +59,7 @@ Laravel 12 (バックエンド API) と Nuxt 4 (フロントエンド) を組み
 ```
 
 - 個別のレビューコメントは`mcp__github_inline_comment__create_inline_comment`を使用してインラインコメントとして作成してください。
-  - その際、次の重要度についてラベリングしてください。
+  - その際、次の重要度に応じて分類しレビューコメントに記載してください
     - :rotating_light: Critical
     - :warning: Major
     - :eyes: Minor
