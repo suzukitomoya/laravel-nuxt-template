@@ -1,65 +1,8 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## プロジェクト概要
 
 Laravel 12 (バックエンド API) と Nuxt 4 (フロントエンド) を組み合わせたフルスタックテンプレート。Docker環境でのローカル開発と、AWS Lambda (Bref) へのサーバーレスデプロイをサポート。
-
-## 開発コマンド
-
-### ローカル開発の起動
-
-```bash
-# /etc/hosts に以下を追加（初回のみ）
-# 127.0.0.1 nginx-container
-
-# Dockerコンテナ起動
-docker compose up -d
-
-# Laravel セットアップ
-docker compose exec php composer install
-docker compose exec php cp .env.example .env
-docker compose exec php php artisan key:generate
-
-# Nuxt セットアップと開発サーバー起動
-docker compose exec node npm install
-docker compose exec node npm run dev
-```
-
-### テスト実行
-
-```bash
-# Laravel テスト
-docker compose exec php php artisan test
-
-# 特定のテストファイル
-docker compose exec php php artisan test --filter=ExampleTest
-
-# PHPUnit 直接実行
-docker compose exec php ./vendor/bin/phpunit
-```
-
-### リント
-
-```bash
-# Laravel (Pint)
-docker compose exec php ./vendor/bin/pint
-
-# Nuxt (ESLint)
-docker compose exec node npm run lint
-docker compose exec node npm run lint:fix
-```
-
-### サーバーレスデプロイ
-
-```bash
-docker compose exec php php artisan config:clear
-docker compose exec node npm run build:serverless
-
-cd app
-serverless deploy --aws-profile <YOUR_AWS_PROFILE>
-```
 
 ## アーキテクチャ
 
@@ -94,3 +37,27 @@ serverless deploy --aws-profile <YOUR_AWS_PROFILE>
 - `php`: Laravel実行環境、`/var/www/app` にマウント
 - `node`: Nuxt開発サーバー、ポート3000、`/app` にマウント
 - `mysql`: データベース (user: local, password: local)
+
+## コードレビュー
+
+### レビュー観点
+
+- セキュリティリスク（SQLインジェクション, XSS, 認証・認可の不備, バリデーションの不備など）
+- コード品質（コーディング規約, 単一責任原則, DRY原則, 変数名・関数名が明確で説明的か, 複雑なロジックにコメントがあるかなど）
+- パフォーマンス（N+1クエリ, 大量データ処理のページネーション・ストリーミング, 不要な再レンダリングなど）
+- テスト（エッジケースがテストされているか, カバレッジのためではなく意味あるテストかなど）
+- エラーハンドリング（適切な例外処理, エラーメッセージがユーザーフレンドリーで機密情報を漏らしていないかなど）
+
+### 出力フォーマット
+
+出力は日本語で記述し、特定のコードに対する指摘はインラインコメントで指摘してください。
+以下のフォーマットでレビュー結果を提供してください：
+
+### 概要
+変更内容の簡潔な概要と全体的な評価。
+
+### 発見された問題
+重要度別に問題を分類して列挙：
+- **Critical（重大）**: マージ前に必ず修正が必要
+- **Major（重要）**: 修正すべきだが、フォローアップで対応可
+- **Minor（軽微）**: 改善の提案
