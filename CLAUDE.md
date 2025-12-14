@@ -55,4 +55,4 @@ Laravel 12 (バックエンド API) と Nuxt 4 (フロントエンド) を組み
 ### 出力フォーマット
 
 - 日本語で記述してください。
-- **重要** レビューコメントは個別に`mcp__github_inline_comment__create_inline_comment`を使用してインラインコメントとして作成してください。
+- **重要** レビューコメントをまとめて書くのは禁止です。すべての指摘箇所ごとに、必ずファイルに対してインラインコメントで記載してください。インラインコメントは`mcp__github_inline_comment__create_inline_comment`を使用して作成できます。
