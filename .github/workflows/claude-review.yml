@@ -1,4 +1,4 @@
-name: Claude PR Action
+name: Claude PR Review
 
 permissions:
   contents: write
